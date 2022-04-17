@@ -4,11 +4,44 @@ function pageHeaderHTML() {
     `
 }
 
-function pageContentHTML(ideas) {
-    let myStr = "";
+// FOR OF
+// function pageContentHTML(ideas) {
+//     let myStr = "";
 
-    for(let idea of ideas) {
-        myStr = myStr.concat(
+//     for(let idea of ideas) {
+//         myStr = myStr.concat(
+//             `
+//             <div>
+//                 <h2>${idea.activity}</h2>
+//                 <p>${idea.type}</p>
+//                 <p>${idea.accessibility}</p>
+//             </div>
+//             `
+//         )
+//     }
+//     return myStr;
+// };
+
+// REDUCE
+// function pageContent(artists) {
+//     return artists.reduce((myStr, {title, photographer, dateCreated}) => {
+//         return myStr.concat(
+//             `
+//             <div>
+//                 <h2>${title}</h2>
+//                 <p>${photographer}</p>
+//                 <p>${dateCreated}</p>
+//             </div>
+//             `
+//         )
+//     }, "")
+// };
+
+// MAP
+function pageContentHTML(ideas) {
+    // {activity, type, accessibility}
+    return ideas.map(idea => {
+        return (
             `
             <div>
                 <h2>${idea.activity}</h2>
@@ -17,8 +50,7 @@ function pageContentHTML(ideas) {
             </div>
             `
         )
-    }
-    return myStr;
+    }).join("")
 };
 
 async function fetchIdeas() {
@@ -28,7 +60,7 @@ async function fetchIdeas() {
 
 async function loadEvent() {
     const ideas = await fetchIdeas();
-    
+
     const rootElement = document.getElementById("root");
     rootElement.insertAdjacentHTML("beforeend", pageHeaderHTML());
     
