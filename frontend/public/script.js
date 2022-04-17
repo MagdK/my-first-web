@@ -1,12 +1,38 @@
-function pageHeader() {
+function pageHeaderHTML() {
     return`
-        <h2>This is so much fun</h2>
+        <h1>My plans for the next 6 months</h1>
     `
 }
 
-function loadEvent() {
+function pageContentHTML(ideas) {
+    let myStr = "";
+
+    for(let idea of ideas) {
+        myStr = myStr.concat(
+            `
+            <div>
+                <h2>${idea.activity}</h2>
+                <p>${idea.type}</p>
+                <p>${idea.accessibility}</p>
+            </div>
+            `
+        )
+    }
+    return myStr;
+};
+
+async function fetchIdeas() {
+    const ideaData = await fetch(`http://127.0.0.1:9002/users`);
+    return ideaData.json();
+};
+
+async function loadEvent() {
+    const ideas = await fetchIdeas();
+    
     const rootElement = document.getElementById("root");
-    rootElement.insertAdjacentHTML("beforeend", pageHeader());
+    rootElement.insertAdjacentHTML("beforeend", pageHeaderHTML());
+    
+    rootElement.innerHTML = pageContentHTML(ideas);
 };
 
 window.addEventListener("load", loadEvent);
