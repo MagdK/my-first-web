@@ -43,7 +43,7 @@ function pageContentHTML(ideas) {
     return ideas.map(idea => {
         return (
             `
-            <div>
+            <div class="card">
                 <h2>${idea.activity}</h2>
                 <p>${idea.type}</p>
                 <p>${idea.accessibility}</p>
@@ -65,6 +65,10 @@ async function loadEvent() {
     rootElement.insertAdjacentHTML("beforeend", pageHeaderHTML());
     
     rootElement.innerHTML = pageContentHTML(ideas);
+
+    const listOfDivCards = document.querySelectorAll(".card")
+    listOfDivCards[0].classList.add("veryFirstCard");
+    listOfDivCards[1].setAttribute("id","para-1");;
 };
 
 window.addEventListener("load", loadEvent);
