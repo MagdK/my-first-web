@@ -2,63 +2,42 @@
     {
         "activity": "Explore a park you have never been to before",
         "type": "recreational",
-        "participants": 1,
-        "price": 0,
-        "link": "",
         "key": "8159356",
         "accessibility": 0
       },
       {
         "activity": "Watch a classic movie",
         "type": "recreational",
-        "participants": 1,
-        "price": 0.1,
-        "link": "",
         "key": "8081693",
         "accessibility": 0.1
     },
     {
         "activity": "Plan a trip to another country",
         "type": "recreational",
-        "participants": 1,
-        "price": 0,
-        "link": "",
         "key": "5554727",
         "accessibility": 0
     },
     {
         "activity": "Watch a classic movie",
         "type": "recreational",
-        "participants": 1,
-        "price": 0.1,
-        "link": "",
         "key": "8081693",
         "accessibility": 0.1
     },
     {
         "activity": "Buy a new house decoration",
         "type": "recreational",
-        "participants": 1,
-        "price": 0.4,
-        "link": "",
         "key": "3456114",
         "accessibility": 0.3
     },
     {
         "activity": "Start a blog for something you're passionate about",
         "type": "recreational",
-        "participants": 1,
-        "price": 0.05,
-        "link": "",
         "key": "8364626",
         "accessibility": 0.1
     },
     {
         "activity": "Catch up on world news",
         "type": "recreational",
-        "participants": 1,
-        "price": 0.05,
-        "link": "",
         "key": "6596257",
         "accessibility": 0.07
     }

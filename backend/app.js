@@ -1,28 +1,26 @@
-const port = 9002;
+const port = 9001;
 const express = require('express');
-const fs = require('fs');
 const path = require('path');
 const app = express();
 
 app.use(express.json());
 
+// PATHS
 const pathToFrontend = path.join(__dirname, '../frontend');
-const pathToPublic = path.join(pathToFrontend, 'public');
-const pathToData = path.join(pathToPublic, 'data');
-const pathToUsers = path.join(pathToData, 'users.json');
+const pathToIndex = path.join(pathToFrontend, 'index.html');
+const pathToPub = path.join(pathToFrontend, 'public');
+const pathToData = path.join(pathToPub, 'data');
+const pathToUserJson = path.join(pathToData, 'data.json');
 
-app.use('/pub', express.static(pathToPublic));
+// USE
+app.use('/pub', express.static(pathToPub));
 
+
+// GET REQUESTS
 app.get('/', (req, res) => {
-    res.sendFile(path.join(pathToFrontend, 'index.html'));
+    res.sendFile(pathToIndex)
 });
-
-// Users.json file
-app.get('/users', (req, res) => {
-    res.sendFile(pathToUsers);
-});
-
 
 app.listen(port, () => {
-    console.log(`http://127.0.0.1:${port}`)
-});
+    console.log(`http://127.0.0.1:${port}`);
+})
